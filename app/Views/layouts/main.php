@@ -3,19 +3,43 @@
 
 <head>
     <meta charset="UTF-8">
-    <title><?= esc($title ?? 'CI4 CRUD App') ?>
+    <meta name="description" content="The small framework with powerful features">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        <?= esc($title ?? 'CI4 CRUD App') ?>
     </title>
 
-    <link rel="stylesheet"
+    <!-- <link rel="stylesheet"
         href="<?= base_url('css/style.css') ?>">
+    -->
+
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+    <!-- Optional Tailwind config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb'
+                    }
+                }
+            }
+        }
+    </script>
+
 </head>
 
-<body>
-
+<body class="bg-gray-100 text-gray-800">
     <?= $this->include('partials/header') ?>
-    <?= $this->include('partials/navbar') ?>
 
-    <main class="container">
+    <main class="container mx-auto mt-6 px-4">
         <?= $this->renderSection('content') ?>
     </main>
 
