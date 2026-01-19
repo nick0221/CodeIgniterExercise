@@ -22,7 +22,7 @@
 </div>
 <?php endif; ?>
 
-<table class="min-w-full bg-gray-800 rounded shadow overflow-hidden">
+<table class="min-w-full bg-gray-200 rounded shadow overflow-hidden">
     <thead class="bg-gray-300 text-left">
         <tr>
             <th class="px-4 py-2">ID</th>

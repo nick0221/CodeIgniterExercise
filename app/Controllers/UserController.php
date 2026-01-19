@@ -24,7 +24,7 @@ class UserController extends BaseController
     public function create()
     {
         $data['title'] = 'Create User';
-        return view('users/create', $data);
+        return view('pages/users/create', $data);
     }
 
     // Handle form submission
@@ -53,17 +53,38 @@ class UserController extends BaseController
 
     public function edit($id)
     {
-        $data['user'] = $this->userModel->find($id);
-        $data['title'] = 'Edit User';
-        return view('pages/users/edit', $data);
+        $user = $this->userModel->find($id);
+
+        if (!$user) {
+            return redirect()->to('/users')->with('error', 'User not found.');
+        }
+
+        return view('pages/users/edit', [
+            'title' => 'Edit User',
+            'user'  => $user,
+        ]);
     }
 
     public function update($id)
     {
+        $validation = \Config\Services::validation();
+
+        $validation->setRules([
+            'name'  => 'required|min_length[3]',
+            'email' => "required|valid_email|is_unique[users.email,id,{$id}]",
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->back()
+                ->withInput()
+                ->with('errors', $validation->getErrors());
+        }
+
         $this->userModel->update($id, [
-            'name' => $this->request->getPost('name'),
+            'name'  => $this->request->getPost('name'),
             'email' => $this->request->getPost('email'),
         ]);
+
         return redirect()->to('/users')->with('success', 'User updated successfully!');
     }
 
