@@ -39,7 +39,7 @@
 <body class="bg-gray-100 text-gray-800">
     <?= $this->include('partials/header') ?>
 
-    <main class="container mx-auto mt-6 px-4">
+    <main class="container mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-6">
         <?= $this->renderSection('content') ?>
     </main>
 
