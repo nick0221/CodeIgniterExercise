@@ -51,6 +51,23 @@
 
     <?= $this->include('partials/footer') ?>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        function deleteModal() {
+            return {
+                open: false,
+                id: null,
+                name: '',
+
+                confirmDelete(userId, userName) {
+                    this.id = userId;
+                    this.name = userName;
+                    this.open = true;
+                }
+            }
+        }
+    </script>
+
 </body>
 
 </html>
