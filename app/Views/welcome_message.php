@@ -6,10 +6,11 @@
     <meta name="description" content="The small framework with powerful features">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="/favicon.ico">
-
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+ 
     <!-- STYLES -->
 
-    <style {csp-style-nonce}>
+    <style {csp-style-nonce}>s
         * {
             transition: background-color 300ms ease, color 300ms ease;
         }
@@ -228,7 +229,7 @@
         <h1>Welcome to CodeIgniter <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
 
         <h2>The small framework with powerful features</h2>
-
+        
     </div>
 
 </header>
