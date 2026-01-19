@@ -90,7 +90,14 @@ class UserController extends BaseController
 
     public function delete($id)
     {
+        $user = $this->userModel->find($id);
+
+        if (!$user) {
+            return redirect()->to('/users')->with('error', 'User not found.');
+        }
+
         $this->userModel->delete($id);
-        return redirect()->to('/users')->with('success', 'User deleted successfully!');
+
+        return redirect()->to('/users')->with('success', 'User deleted successfully.');
     }
 }
